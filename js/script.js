@@ -13,8 +13,6 @@ try {
 
     result.data.forEach(el => elementsArray.push(el));
 
-} catch (error) {
-    console.error(error);
 } finally {
     document.getElementById("loader").style.display = "none";
     uiWrite(elementsArray);
