@@ -16,7 +16,7 @@ return res.json();
 )
 .then((res)=>
 {
-res.data.forEach(el=>elementsArray.push(el));
+// res.data.forEach(el=>elementsArray.push(el));
 })
 .finally(()=>{
 setTimeout(()=>document.getElementById("loader").style.display="none",500);
