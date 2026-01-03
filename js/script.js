@@ -24,14 +24,13 @@ return res;
 })
 .catch((res)=>
 {
-    console.log("Xatolik:",res);
+    console.log(res);
 })
 .finally(()=>{
 setTimeout(()=>document.getElementById("loader").style.display="none",500);
 setTimeout(() => {uiWrite(elementsArray);}, 1200);});
 
 function uiWrite(arr) {
-elementsArray[3].image="https://www.hyundai.com/content/dam/hyundai/uz/ru/images/find-a-car/pip/new-elantra/design/elantra-design-parametric-jewelpattern-grille-pc.jpg";
 elBox.innerHTML='';
 if(arr!='') {
 elBox.style.display="flex";
