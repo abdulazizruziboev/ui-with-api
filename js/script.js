@@ -8,12 +8,19 @@ fetch("https://json-api.uz/api/project/fn44-amaliyot/cars")
 .then((res)=>{
 return res.json();
 }
-).then((res)=>
+)
+.catch((res)=>{
+    console.log(res); 
+    return res
+}
+)
+.then((res)=>
 {
 res.data.forEach(el=>elementsArray.push(el));
-}).finally(()=>{
+})
+.finally(()=>{
 setTimeout(()=>document.getElementById("loader").style.display="none",500);
-setTimeout(() => {uiWrite(elementsArray);}, 1200);}).catch((res)=>console.log(res));
+setTimeout(() => {uiWrite(elementsArray);}, 1200);});
 
 function uiWrite(arr) {
 elBox.innerHTML='';
