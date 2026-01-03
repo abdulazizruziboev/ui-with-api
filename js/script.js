@@ -9,7 +9,7 @@ try {
         "https://json-api.uz/api/project/fn44-amaliyot/cars"
     );
 
-    const result = await response.json();
+    const result = response.json();
 
     result.data.forEach(el => elementsArray.push(el));
 
