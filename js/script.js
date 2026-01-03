@@ -5,6 +5,12 @@ let elSearch = document.getElementById("search");
 let elFilter = document.getElementById("filter");
 let elementsArray = [];
 
+window.addEventListener("load",()=>{
+    setTimeout(() => {    
+        document.getElementById("loaderMain").style.transform="translateY(-100%)";
+    }, 500);
+});
+
 fetch("https://json-api.uz/api/project/fn44-amaliyot/cars")
 .then((res)=>{
     statusAPI(res.status)
@@ -18,9 +24,10 @@ return res;
 })
 .catch((res)=>
 {
-console.log(res.json());
+    console.log("Xatolik:",res);
 })
 .finally(()=>{
+elementsArray[3].image="https://www.hyundai.com/content/dam/hyundai/uz/ru/images/find-a-car/pip/new-elantra/design/elantra-design-parametric-jewelpattern-grille-pc.jpg";
 setTimeout(()=>document.getElementById("loader").style.display="none",500);
 setTimeout(() => {uiWrite(elementsArray);}, 1200);});
 
@@ -38,14 +45,14 @@ src="${el.image}"
 alt="${el.name}" class="bg-[#f1f1f1] h-[285px] w-full border-[#0001] border-b-1" />
 </figure>
 <div class="card-body">
-<h2 class="card-title">
+<h2 class="text-[20px] card-title">
 ${el.name}
 </h2>
-<div>
-<p>Fuel: <span class="font-bold">${el.details.fuel}</span class="font-bold"></p>
-<p>Gearbox: <span class="font-bold">${el.details.gearbox}</span class="font-bold"></p>
-<p>Drive: <span class="font-bold">${el.drive}</span class="font-bold"></p>
-<p>Seats: <span class="font-bold">${el.details.seats}</span class="font-bold"></p>
+<div class="text-[15px]">
+<p>Fuel:    <span class="font-[550]">${el.details.fuel}</span></p>
+<p>Gearbox: <span class="font-[550]">${el.details.gearbox}</span></p>
+<p>Drive:   <span class="font-[550]">${el.drive}</span></p>
+<p>Seats:   <span class="font-[550]">${el.details.seats}</span></p>
 </div>
 <div class="card-actions justify-end">
 <div class="badge badge-outline">${el.type}</div>
