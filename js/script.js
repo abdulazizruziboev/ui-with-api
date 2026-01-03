@@ -4,20 +4,23 @@ let elSearch = document.getElementById("search");
 let elFilter = document.getElementById("filter");
 let elementsArray = [];
 
-try {
-    const response = fetch(
-        "https://json-api.uz/api/project/fn44-amaliyot/cars"
-    );
-
-    const result = response.json();
-
-    result.data.forEach(el => elementsArray.push(el));
-
-} finally {
-    document.getElementById("loader").style.display = "none";
-    uiWrite(elementsArray);
+fetch("https://json-api.uz/api/project/fn44-amaliyot/cars")
+.then((res)=>{
+console.log(res);
+return res.json();
 }
-
+)
+.catch((res)=>{
+    return res
+}
+)
+.then((res)=>
+{
+res.data.forEach(el=>elementsArray.push(el));
+})
+.finally(()=>{
+setTimeout(()=>document.getElementById("loader").style.display="none",500);
+setTimeout(() => {uiWrite(elementsArray);}, 1200);});
 
 function uiWrite(arr) {
 elBox.innerHTML='';
