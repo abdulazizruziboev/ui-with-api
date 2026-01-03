@@ -13,7 +13,7 @@ return res.json();
 res.data.forEach(el=>elementsArray.push(el));
 }).finally(()=>{
 setTimeout(()=>document.getElementById("loader").style.display="none",500);
-setTimeout(() => {uiWrite(elementsArray);}, 1200);});
+setTimeout(() => {uiWrite(elementsArray);}, 1200);}).catch((res)=>console.log(res));
 
 function uiWrite(arr) {
 elBox.innerHTML='';
@@ -78,4 +78,14 @@ function uiFilteredWrite(val) {
 
 elFilter.addEventListener("change",(evt)=>{
     uiFilteredWrite(evt.target.value);
+});
+
+window.addEventListener("scroll",()=>{
+    let str = "bg-white border-1 border-[#ddd] fixed z-2 top-0 py-4 pb-6 px-10 rounded-[0px_0px_40px_40px] shadow-sm"
+    str=str.split(" ")
+    if(window.scrollY>220) {
+        str.forEach(el=>document.getElementById("filterBox").classList.add(el));
+    } else {
+        str.forEach(el=>document.getElementById("filterBox").classList.remove(el));
+    };
 });
