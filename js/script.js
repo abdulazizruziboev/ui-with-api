@@ -4,25 +4,22 @@ let elSearch = document.getElementById("search");
 let elFilter = document.getElementById("filter");
 let elementsArray = [];
 
-await fetch("https://json-api.uz/api/project/fn44-amaliyot/cars",{
-    method: "POST",
-})
-.then((res)=>{
-console.log(res);
-return res.json();
+try {
+    const response = await fetch(
+        "https://json-api.uz/api/project/fn44-amaliyot/cars"
+    );
+
+    const result = await response.json();
+
+    result.data.forEach(el => elementsArray.push(el));
+
+} catch (error) {
+    console.error(error);
+} finally {
+    document.getElementById("loader").style.display = "none";
+    uiWrite(elementsArray);
 }
-)
-.catch((res)=>{
-    return res
-}
-)
-.then((res)=>
-{
-res.data.forEach(el=>elementsArray.push(el));
-})
-.finally(()=>{
-setTimeout(()=>document.getElementById("loader").style.display="none",500);
-setTimeout(() => {uiWrite(elementsArray);}, 1200);});
+
 
 function uiWrite(arr) {
 elBox.innerHTML='';
