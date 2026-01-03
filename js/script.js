@@ -1,3 +1,4 @@
+let elStatus = document.getElementById("status");
 let elBox = document.getElementById("cardsBox");
 let elErrorBox = document.getElementById("errorBox");
 let elSearch = document.getElementById("search");
@@ -6,17 +7,28 @@ let elementsArray = [];
 
 fetch("https://json-api.uz/api/project/fn44-amaliyot/cars")
 .then((res)=>{
-console.log(res);
-return res.json();
+if(res.status > 99 && res.status < 200) {
+    elStatus.style.backgroundColor="#ffee00ff";
+} else if(res.status > 199 && res.status < 300) { 
+    elStatus.style.backgroundColor="#00ff00";
+} else if(res.status > 299 && res.status < 400) { 
+    elStatus.style.backgroundColor="#0088ffff";
+} else if(res.status > 399 && res.status < 500) { 
+    elStatus.style.backgroundColor="#ff0000ff";
+} else if(res.status > 499 && res.status < 600) { 
+    elStatus.style.backgroundColor="#ff6f00ff";
 }
-)
-.catch((res)=>{
-    return res;
+    return res.json();
 }
 )
 .then((res)=>
 {
 res.data.forEach(el=>elementsArray.push(el));
+return res;
+})
+.catch((res)=>
+{
+console.log(res.json());
 })
 .finally(()=>{
 setTimeout(()=>document.getElementById("loader").style.display="none",500);
