@@ -10,7 +10,7 @@ return res.json();
 }
 )
 .catch((res)=>{
-    console.log(res); 
+    alert.log(res); 
     return res
 }
 )
