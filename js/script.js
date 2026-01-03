@@ -4,7 +4,9 @@ let elSearch = document.getElementById("search");
 let elFilter = document.getElementById("filter");
 let elementsArray = [];
 
-fetch("https://json-api.uz/api/project/fn44-amaliyot/cars")
+fetch("https://json-api.uz/api/project/fn44-amaliyot/cars",{
+    method: "GET"
+})
 .then((res)=>{
 console.log(res);
 return res.json();
@@ -16,7 +18,7 @@ return res.json();
 )
 .then((res)=>
 {
-// res.data.forEach(el=>elementsArray.push(el));
+res.data.forEach(el=>elementsArray.push(el));
 })
 .finally(()=>{
 setTimeout(()=>document.getElementById("loader").style.display="none",500);
