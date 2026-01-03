@@ -4,9 +4,8 @@ let elSearch = document.getElementById("search");
 let elFilter = document.getElementById("filter");
 let elementsArray = [];
 
-fetch("https://json-api.uz/api/project/fn44-amaliyot/cars",{
+await fetch("https://json-api.uz/api/project/fn44-amaliyot/cars",{
     method: "POST",
-    body: '{}'
 })
 .then((res)=>{
 console.log(res);
