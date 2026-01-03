@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UI Cards With API</title>
@@ -49,9 +50,20 @@
     <div class="flex items-center justify-center h-[70vh] w-full max-w-[1440px]" id="loader">
     <span class="loading loading-ring loading-xl scale-[4]"></span>
     </div>
-    <div class="flex items-center justify-start w-full max-w-[1440px] flex-wrap gap-[30px] py-10" id="cardsBox">
+    <div class="flex items-center justify-start w-full max-w-[1440px] flex-wrap gap-[30px] py-10" id="cardsBox" >
     </div>
-    
+    <div class="hidden items-center justify-center h-[70vh] w-full max-w-[1440px] flex-col" id="errorBox">
+        <h2 class="text-[60px] flex justify-center gap-[14px] items-center font-bold">
+            <span class="opacity-[0.75]">4</span>
+            <i class="fas fa-robot"></i>
+            <span class="w-[40px] h-[72px] relative flex justify-center items-center">
+                <span class="absolute rotate-[180deg] ml-[-8px] opacity-[0.75]">4</span>
+            </span>
+        </h2>
+        <span class="text-[18px] font-bold opacity-[0.75]">
+           Opps... Something wrong
+        </span>
+    </div>
     </main>
     <script src="js/script.js"></script>
 </body>

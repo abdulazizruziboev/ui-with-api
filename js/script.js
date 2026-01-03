@@ -1,4 +1,5 @@
 let elBox = document.getElementById("cardsBox");
+let elErrorBox = document.getElementById("errorBox");
 let elSearch = document.getElementById("search");
 let elFilter = document.getElementById("filter");
 let elementsArray = [];
@@ -11,13 +12,14 @@ return res.json();
 {
 res.data.forEach(el=>elementsArray.push(el));
 }).finally(()=>{
-setTimeout(()=>document.getElementById("loader").style.display="none",5);
-uiWrite(elementsArray)
-});
+setTimeout(()=>document.getElementById("loader").style.display="none",500);
+setTimeout(() => {uiWrite(elementsArray);}, 1200);});
 
 function uiWrite(arr) {
 elBox.innerHTML='';
 if(arr!='') {
+elBox.style.display="flex";
+elErrorBox.style.display="none";
 arr.forEach((el)=>{
 let elHTMLStucture = 
 `<div class="card bg-base-100 w-96 lg:w-115 shadow-sm bg-[#f4f4f4] border-1 border-[#0002]">
@@ -44,6 +46,10 @@ ${el.name}
 elBox.innerHTML+=elHTMLStucture;
 });
 }
+else if(arr=='') {
+    elBox.style.display="none";
+    elErrorBox.style.display="flex";
+}
 
 };
 
@@ -65,7 +71,9 @@ function uiFilteredWrite(val) {
         if(el.type.toLowerCase()==val.toLowerCase()) return arr.push(el);
     });
     uiWrite(arr);
-    if(val.toLowerCase()=="no") uiWrite(elementsArray);
+    if(val.toLowerCase()=="no") {
+        uiWrite(elementsArray);
+    };
 }
 
 elFilter.addEventListener("change",(evt)=>{
