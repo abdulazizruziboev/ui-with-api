@@ -103,20 +103,24 @@ function statusAPI(sc) {
 if(sc > 99 && sc < 200) {
     elStatus.style.backgroundColor="#ffee00ff";
     elFilter.style.pointerEvents="none";
-    elSearch.style.pointerEvents="none"
+    elSearch.style.pointerEvents="none";
+    document.getElementById("sc404").style.display="none";
 } else if(sc > 199 && sc < 300) { 
     elStatus.style.backgroundColor="#00ff00";
 } else if(sc > 299 && sc < 400) { 
     elStatus.style.backgroundColor="#0088ffff";
     elFilter.style.pointerEvents="none";
-    elSearch.style.pointerEvents="none"
+    elSearch.style.pointerEvents="none";
+    document.getElementById("sc404").style.display="none";
 } else if(sc > 399 && sc < 500) { 
     elStatus.style.backgroundColor="#ff0000ff";
     elFilter.style.pointerEvents="none";
-    elSearch.style.pointerEvents="none"
+    elSearch.style.pointerEvents="none";
+    document.getElementById("sc404").style.display="none";
 } else if(sc > 499 && sc < 600) { 
     elStatus.style.backgroundColor="#ff6f00ff";
     elFilter.style.pointerEvents="none";
-    elSearch.style.pointerEvents="none"
+    elSearch.style.pointerEvents="none";
+    document.getElementById("sc404").style.display="none";
 }
 }
