@@ -7,17 +7,7 @@ let elementsArray = [];
 
 fetch("https://json-api.uz/api/project/fn44-amaliyot/cars")
 .then((res)=>{
-if(res.status > 99 && res.status < 200) {
-    elStatus.style.backgroundColor="#ffee00ff";
-} else if(res.status > 199 && res.status < 300) { 
-    elStatus.style.backgroundColor="#00ff00";
-} else if(res.status > 299 && res.status < 400) { 
-    elStatus.style.backgroundColor="#0088ffff";
-} else if(res.status > 399 && res.status < 500) { 
-    elStatus.style.backgroundColor="#ff0000ff";
-} else if(res.status > 499 && res.status < 600) { 
-    elStatus.style.backgroundColor="#ff6f00ff";
-}
+    statusAPI(res.status)
     return res.json();
 }
 )
@@ -108,3 +98,17 @@ window.addEventListener("scroll",()=>{
         str.forEach(el=>document.getElementById("filterBox").classList.remove(el));
     };
 });
+
+function statusAPI(sc) {
+if(sc > 99 && sc < 200) {
+    elStatus.style.backgroundColor="#ffee00ff";
+} else if(sc > 199 && sc < 300) { 
+    elStatus.style.backgroundColor="#00ff00";
+} else if(sc > 299 && sc < 400) { 
+    elStatus.style.backgroundColor="#0088ffff";
+} else if(sc > 399 && sc < 500) { 
+    elStatus.style.backgroundColor="#ff0000ff";
+} else if(sc > 499 && sc < 600) { 
+    elStatus.style.backgroundColor="#ff6f00ff";
+}
+}
