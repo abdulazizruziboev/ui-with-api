@@ -6,11 +6,11 @@ let elementsArray = [];
 
 fetch("https://json-api.uz/api/project/fn44-amaliyot/cars")
 .then((res)=>{
+console.log(res);
 return res.json();
 }
 )
 .catch((res)=>{
-    alert(res); 
     return res
 }
 )
