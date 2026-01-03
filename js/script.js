@@ -11,7 +11,7 @@ return res.json();
 }
 )
 .catch((res)=>{
-    return res
+    return res;
 }
 )
 .then((res)=>
