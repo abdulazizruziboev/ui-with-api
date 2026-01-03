@@ -5,7 +5,7 @@ let elFilter = document.getElementById("filter");
 let elementsArray = [];
 
 fetch("https://json-api.uz/api/project/fn44-amaliyot/cars",{
-    method: "GET"
+    method: "POST"
 })
 .then((res)=>{
 console.log(res);
